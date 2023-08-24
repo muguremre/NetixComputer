@@ -3,6 +3,7 @@ using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,26 @@ namespace DataAccess.Concrete.InMemory
     public class InMemoryComputerDal : IComputerDal
     {
         List<Computer> _computers;
+
+        public void Add(Computer entity)
+        {
+            
+            _computers.Add(entity);
+
+        }
+
+        public void Delete(Computer entity)
+        {
+            
+            _computers.Remove(entity);
+
+        }
+
+        public List<Computer> GetAll(Expression<Func<Computer, bool>> filter = null)
+        {
+            return _computers;
+        }
+
         public List<Computer> GetComputerDetails()
         {
             _computers = new List<Computer>
@@ -30,6 +51,23 @@ namespace DataAccess.Concrete.InMemory
             
 
 
+        }
+
+        public void Update(Computer entity)
+        {
+            entity.ComputerId = entity.ComputerId;
+        }
+
+        public Computer GetById(int id)
+        {
+            
+            return _computers.SingleOrDefault(c => c.ComputerId == id);
+
+        }
+
+        List<Computer> IEntityRepositoryBase<Computer>.GetById(int id)
+        {
+            return _computers.Where(c => c.ComputerId == id).ToList();
         }
     }
 }

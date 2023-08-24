@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
+
 namespace Entities
 {
-    public class Owner
+    public class Owner : IEntity
     {
         public int OwnerId { get; set; }
         public string FirstName { get; set; }
@@ -15,8 +19,9 @@ namespace Entities
         public string Country { get; set; }
 
         public int Zip { get; set; }
+       
         public string Status { get; set; }
-
+        public int ComputerId { get; set; }
 
     }
 }

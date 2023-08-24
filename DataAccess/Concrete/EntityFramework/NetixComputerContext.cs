@@ -12,11 +12,11 @@ namespace DataAccess.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=muguremre\sqlexpress;Database=NetixProject;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=muguremre;Database=NetixProject;Trusted_Connection=true; TrustServerCertificate=true");
         }
 
-        DbSet<Computer> Computers { get; set; }
-        DbSet<Owner> Owners { get; set; }
+        public DbSet<Computer> Computers { get; set; }
+        public DbSet<Owner> Owners { get; set; }
 
     }
 }

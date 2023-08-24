@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    internal interface IComputerDal
+    public interface IComputerDal : IEntityRepositoryBase<Computer>
     {
         List<Computer> GetComputerDetails();
 

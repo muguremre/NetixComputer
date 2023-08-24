@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
 namespace Entities
 {
-    public class Computer : IEntity
+    public class ComputerDto 
     {
-        public int ComputerId { get; set; }
         public string? ComputerName { get; set; }
         public string? ComputerModel { get; set; }
         public string? GraphicsCard { get; set; }
@@ -20,7 +17,5 @@ namespace Entities
 
         public string? Ram { get; set; }
         public float ScreenSize { get; set; }
-
-
     }
 }

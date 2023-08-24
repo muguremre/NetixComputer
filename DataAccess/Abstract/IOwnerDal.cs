@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    internal interface IOwnerDal
+    public interface IOwnerDal : IEntityRepositoryBase<Owner>
     {
-        List<Owner> GetComputerDetails();
+        List<Owner> GetOwnerDetails();
     }
 }
