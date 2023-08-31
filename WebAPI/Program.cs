@@ -24,7 +24,10 @@ namespace WebAPI
             builder.Services.AddSingleton<IComputerService, ComputerManager>(); // IComputerService istenirse ComputerManager ver
             builder.Services.AddSingleton<IComputerDal, EfComputerDal>(); // IComputerDal istenirse EfComputerDal ver
 
+            builder.Services.AddSingleton<IOwnerService, OwnerManager>(); // IOwnerService istenirse OwnerManager ver
+            builder.Services.AddSingleton<IOwnerDal, EfOwnerDal>(); // IOwnerDal istenirse EfOwnerDal ver
            
+
 
             builder.Services.AddCors(options =>
             {

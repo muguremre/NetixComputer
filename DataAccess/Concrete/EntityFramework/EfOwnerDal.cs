@@ -26,9 +26,9 @@ namespace DataAccess.EntityFramework
                                  LastName = o.LastName,
                                  Email = o.Email,
                                  Country = o.Country,
-                                 Zip = o.Zip,
-                                 Status = o.Status,
                                  ComputerId = o.ComputerId,
+                                 Status = o.Status,
+                                 
                                  
                              };
                 return result.ToList();

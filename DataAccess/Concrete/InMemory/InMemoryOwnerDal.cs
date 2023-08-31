@@ -37,7 +37,7 @@ namespace DataAccess.Concrete.InMemory
             _owners = new List<Owner> {
              new Owner { OwnerId = 1, FirstName = "Emir Eren", LastName = "Gümüştaş",
                 Email= "erengumustas@gmail.com",
-                Country="Turkey",Zip=34000,Status="Student" },
+                Country="Turkey",ComputerId=34000,Status="Student" },
             new Owner
             {
                 OwnerId = 2,
@@ -45,7 +45,7 @@ namespace DataAccess.Concrete.InMemory
                 LastName = "Taşdemir",
                 Email = "emirtasdemir@gmail.com",
                 Country = "Turkey",
-                Zip = 34000,
+                ComputerId = 34000,
                 Status = "Student"
             },
             new Owner
@@ -55,7 +55,7 @@ namespace DataAccess.Concrete.InMemory
                 LastName = "Akdemir",
                 Email = "ahmetakdemir@gmail.com",
                 Country = "Turkey",
-                Zip = 34000,
+                ComputerId = 34000,
                 Status = "Student"
             },
             new Owner
@@ -65,7 +65,7 @@ namespace DataAccess.Concrete.InMemory
                 LastName = "Güneş",
                 Email = "devrimgunes@gmail.com",
                 Country = "Turkey",
-                Zip = 34000,
+                ComputerId = 34000,
                 Status = "Student"
             },
         };
@@ -83,7 +83,7 @@ namespace DataAccess.Concrete.InMemory
             ownerToUpdate.LastName = entity.LastName;
             ownerToUpdate.Email = entity.Email;
             ownerToUpdate.Country = entity.Country;
-            ownerToUpdate.Zip = entity.Zip;
+            ownerToUpdate.ComputerId = entity.ComputerId;
             ownerToUpdate.Status = entity.Status;
         }
 

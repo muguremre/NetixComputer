@@ -12,7 +12,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController] //Attribute
-    public class ComputersController
+    public class ComputersController : ControllerBase
     {
         IComputerService _computerService; // Global değişkenler _ ile başlar
         // Loosely coupled
@@ -36,13 +36,14 @@ namespace WebAPI.Controllers
 
 
         [HttpDelete("{id}")]
-        public string Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var computers = _computerService.GetById(id);
 
             if (computers == null || computers.Count == 0)
             {
-                return ("Boş");
+                return Ok(StatusCode(404, "Bulunamadı"));
+                
             }
 
             // Eğer GetById sonucu gerçekten bir liste ise, burada listeden ilgili öğeyi bulup silin
@@ -50,20 +51,20 @@ namespace WebAPI.Controllers
 
             if (computerToDelete == null)
             {
-                return ("Bulunan öğe silindi");
+                return Ok(StatusCode(200, "Öğe silindi."));
             }
 
             _computerService.Delete(computerToDelete);
 
-            return ("Silindi");
+            return Ok(StatusCode(200,"Silindi"));
         }
 
         [HttpPost]
-        public string Add([FromBody] ComputerDto computerToAdd)
+        public IActionResult Add([FromBody] ComputerDto computerToAdd)
         {
             if (computerToAdd == null)
             {
-                return ("Invalid data received.");
+                return Ok(StatusCode(404, "Invalid data received."));
             }
 
             var computurre = new Computer
@@ -73,12 +74,12 @@ namespace WebAPI.Controllers
                 GraphicsCard = computerToAdd.GraphicsCard,
                 OperatingSystem = computerToAdd.OperatingSystem,
                 Ram = computerToAdd.Ram,
-
+                ScreenSize = computerToAdd.ScreenSize
             };
 
             _computerService.Add(computurre);
 
-            return ("Computer added successfully.");
+            return Ok(StatusCode(200, "Computer added successfully."));
         }
 
 

@@ -16,6 +16,6 @@ namespace Entities
         public string? OperatingSystem { get; set; }
 
         public string? Ram { get; set; }
-        public float ScreenSize { get; set; }
+        public int ScreenSize { get; set; }
     }
 }
